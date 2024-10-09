@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AppExplanationActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="20dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="딥러닝이란?"
+                android:textColor="#000000"
+                android:textSize="24sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="인공지능의 하위 분야로서 레이어들을 겹겹이 쌓아 올려 구성된 신경망(neural network)이라는 모델을 사용하여 표현을 학습한 방식이다."
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:paddingBottom="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="레이어 종류"
+                android:textColor="#000000"
+                android:textSize="24sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Convolution : 데이터에서 feature를 추출하기 위한 용도로 사용되는 연산이다."
+                android:textColor="#000000"
+                android:textSize="16sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pooling : convolution을 통해서 추출된 feature map을 인위로 줄이는 작업이다."
+                android:textColor="#000000"
+                android:textSize="16sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fully Connected : 모든 노드와 결합된 형태의 layer이며 줄여서 FC라고도 한다."
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:paddingBottom="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="데이터 종류"
+                android:textColor="#000000"
+                android:textSize="24sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MNIST : 손으로 쓴 숫자들로 이루어진 대형 데이터베이스이다."
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:paddingBottom="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="활성화 함수"
+                android:textColor="#000000"
+                android:textSize="24sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Relu : 음수면 0을 출력하고, 양수이면 입력값 그대로 출력해주는 함수이다."
+                android:textColor="#000000"
+                android:textSize="16sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Softmax : 일반적으로 출력 노드의 활성화함수로 사용되며, 입력 값을 받아서 합이 1인 확률로 변환해주는 활성화 함수이다."
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:paddingBottom="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pooling 방식"
+                android:textColor="#000000"
+                android:textSize="24sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Average Pooling : 해당 영역의 평균값을 계산하는 방법이다."
+                android:textColor="#000000"
+                android:textSize="16sp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Max Pooling : 해당 영역에서 최대값을 찾는 방법이다."
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:paddingBottom="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Batch Size"
+                android:textColor="#000000"
+                android:textSize="24sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="데이터 중 학습시키기 위해 한 번에 넘겨주는 데이터 수를 의미한다."
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:paddingBottom="20dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Filter"
+                android:textColor="#000000"
+                android:textSize="24sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CNN에서는 kernel 이라고도 하며, convolution연산을 할 때 이미지의 특징을 찾아내기 위한 것으로 일반적으로 filter size(kernel size)는 정사각 행렬로 정의된다."
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:paddingBottom="20dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

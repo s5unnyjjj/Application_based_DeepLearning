@@ -1,0 +1,61 @@
+import tensorflow as tf
+
+config = {
+    'batch': 50,
+    'train_epch': 10,
+    'param_conv': [3, 3, 3],
+    'conv_active': 'relu',
+    'pooling': 'Max',
+    'param_dense': [(10, 'relu'), (10, 'softmax')],
+    'loss': tf.keras.losses.mean_squared_error
+}
+
+def model_build():
+    Model = tf.keras.Sequential()
+    Model.add(tf.keras.layers.Input(shape=(28, 28, 1), batch_size=config['batch']))
+    # conv
+    for param in config['param_conv']:
+        Model.add(tf.keras.layers.Conv2D(10, param, activation=config['conv_active']))
+        if config['pooling'] == 'Max':
+            Model.add(tf.keras.layers.MaxPooling2D())
+        else:
+            Model.add(tf.keras.layers.AveragePooling2D())
+
+    Model.add(tf.keras.layers.Flatten())
+
+    # dense
+    for (node, activation) in config['param_dense']:
+        if activation == 'relu':
+            Model.add(tf.keras.layers.Dense(node, tf.keras.activations.relu))
+        elif activation == 'softmax':
+            Model.add(tf.keras.layers.Dense(node, tf.keras.activations.softmax))
+
+    return Model
+
+
+if __name__ == '__main__':
+        print('시작')
+
+        # Model 구축
+        Model = model_build()
+
+        Model.compile(optimizer='adam', loss=tf.keras.losses.sparse_categorical_crossentropy)
+        Model.build()
+        print(1)
+        Model.summary()
+
+        # 데이터 구분 필요(mnist 인지 cifa 인지)
+        (x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
+        x_train, x_test = x_train / 255.0, x_test / 255.0
+
+        x_train = x_train[..., tf.newaxis]
+        x_test = x_test[..., tf.newaxis]
+
+        train_ds = tf.data.Dataset.from_tensor_slices(
+            (x_train, y_train)).shuffle(10000).batch(32)
+        test_ds = tf.data.Dataset.from_tensor_slices((x_test, y_test)).batch(32)
+
+        # Model 학습
+        Model.fit(x_train, y_train, epochs=config['train_epch'], batch_size=config['batch'])
+
+        Model.predict(x_test)
